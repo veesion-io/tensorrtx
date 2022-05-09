@@ -16,8 +16,8 @@
 #define IOU_THRESH 0.4
 
 // stuff we know about the network and the input/output blobs
-static const int INPUT_H = decodeplugin::INPUT_H;  // H, W must be able to  be divided by 32.
-static const int INPUT_W = decodeplugin::INPUT_W;;
+static const int INPUT_H = 576;  // H, W must be able to  be divided by 32.
+static const int INPUT_W = 704;;
 static const int OUTPUT_SIZE = (INPUT_H / 8 * INPUT_W / 8 + INPUT_H / 16 * INPUT_W / 16 + INPUT_H / 32 * INPUT_W / 32) * 2  * 15 + 1;
 const char* INPUT_BLOB_NAME = "data";
 const char* OUTPUT_BLOB_NAME = "prob";
@@ -316,7 +316,7 @@ int main(int argc, char** argv) {
         }
         p.write(reinterpret_cast<const char*>(modelStream->data()), modelStream->size());
         modelStream->destroy();
-        return 1;
+        return 0;
     } else if (std::string(argv[1]) == "-d") {
         std::ifstream file("retina_r50.engine", std::ios::binary);
         if (file.good()) {
