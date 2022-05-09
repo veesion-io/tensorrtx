@@ -9,7 +9,7 @@
 #include "common.hpp"
 #include "calibrator.h"
 
-#define USE_INT8  // set USE_INT8 or USE_FP16 or USE_FP32
+#define USE_FP16  // set USE_INT8 or USE_FP16 or USE_FP32
 #define DEVICE 0  // GPU id
 #define BATCH_SIZE 1
 #define CONF_THRESH 0.75
